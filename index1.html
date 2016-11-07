@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>home</title>
+ 
+<style>
+
+/* sizes */
+#main-wrap > div { min-height: 450px; }
+
+
+#header,
+#footer 
+{
+    min-height: 40px;
+	background-color: #5F9EA0; 
+}
+
+.info { min-height: 80px; }
+
+/* layout */
+#main-wrap 
+{
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+	background-color: blue; 
+}
+
+#top-sect 
+{
+	float: right;
+	height: 20px;
+	background-color: brown; 
+}
+
+
+#sidebar 
+{
+    float: left;
+    width: 30%;
+	background-color: #5F9EA0; 
+}
+
+#content-wrap 
+{
+    float: right;
+    width: 70%;
+	height: 560px;
+	background-color: brown; 
+}
+
+#info-wrap 
+{
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+	background-color: #5F9EA0; 
+}
+
+.info 
+{
+    width: 50%;
+    float: left;
+	height: 100px;
+}
+.side 
+{
+	padding-top:10px;
+	padding-bottom:10px;
+    width: 440px;
+	height: 40px;
+    float: center;
+	background-color: #5F9EA0; 
+}
+#aa
+{
+	align:left;
+}
+</head>
+</style>
+
+<script type="text/javascript">
+
+var image1=new Image()
+image1.src="one.jpg"
+var image2=new Image()
+image2.src="two.jpg"
+var image3=new Image()
+image3.src="three.jpg"
+var image4=new Image()
+image4.src="four.jpg"
+var image5=new Image()
+image1.src="five.jpg"
+var image6=new Image()
+image2.src="six.jpg"
+var image7=new Image()
+image3.src="seven.jpg"
+var image8=new Image()
+image4.src="eight.jpg"
+</script>
+
+
+<body>
+<nav id="nav01"></nav>
+
+<!--<div id="header">Header</div>-->
+
+<div class="top-sect" align="right"><a href="login.php">Login Here</a></div>
+<div id="main-wrap">
+	
+    <div id="sidebar">
+	
+	<div class="side" align="center"><h3><font color="#FF6103">NEWS</font color></h3></div>
+	
+
+		<marquee onMouseOver="this.scrollAmount=0" onMouseOut="this.scrollAmount=2"bgcolor="#EEEEE0" scrollamount="2" direction="up" loop="true" width="405" height="500">
+			<center>
+				<font size="+1"><strong>Text scrolling up</strong></font><p>
+				<a href="feestructure.php">Sample link</a>
+			</center>
+		</marquee>
+	</div>
+	
+    <div id="content-wrap">
+        <!--<div id="info-wrap">
+            <div class="info">small info </div>
+            <div class="info">small info</div>
+        </div>-->
+ 
+	<!--slideshow-->
+
+	<div style ="background-color:#5F9EA0;float:right; height:300px;width:100%;padding-top:40px;padding-bottom:0px">
+	<br style="clear: left;" />
+	<img src="lg.jpg" name="slide" width="100%" height="500px" />
+	<script>
+		<!--
+			//variable that will increment through the images
+		var step=1
+		function slideit()
+		{
+			//if browser does not support the image object, exit.
+			if (!document.images)
+			return
+			document.images.slide.src=eval("image"+step+".src")
+			if (step<4)
+			step++
+			else
+			step=1
+			//call function "slideit()" every 2.5 seconds
+			setTimeout("slideit()",2500)
+		}
+		slideit()
+		//-->
+	</script>
+	</div >
+		
+		
+		
+		
+		
+		
+		
+    </div>
+</div>
+
+<div id="footer">
+<table  width="80%" cellspacing="10px" cellpadding="">
+<hr/>
+
+<tr><td><u><b>Main Campus</u></b></td>     <td><u><b>Contact Us</b></u></td></tr>
+
+<tr>
+	<td>
+		<ul type="aa">
+			Don Bosco University,<br/>
+			Airport Road, Azara,<br/>
+			Guwahati - 781017<br/>
+			Assam - INDIA<br/>
+		<ul>
+	</td>
+
+<td>
+	<ul type="none">
+		<li>For all prospective and current college inquiries:</li>
+		<li>Phone:+919774829691,&nbsp+913612139291</li>
+		<li>Email:www.dbuniversity.ac.in,&nbsp contact@dbuniversity.ac.in</li>
+		<li>Fax:03612851949</li>
+	</ul>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

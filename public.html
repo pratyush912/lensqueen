@@ -1,0 +1,37 @@
+<html>
+<head><title>Registration</title>
+<style>
+body
+{
+background-image:url('2.png')
+}
+</style>
+<script>
+function uploadphoto()
+	{
+		document.location='photo.php';
+	}
+function gallery()
+	{
+		document.location='display.php';
+	}
+</script>
+</head>
+<body bgcolor="white">
+<header>
+<h1 align="center">Welcome to Photography Competition 2016</h1>
+<h4 style="text-align:right">
+	<a href = "logout.php">[Sign Out]</a>
+	</h4>
+<hr/><br/><br/><br/><br/><br/>
+<h3><center>Choose your Action</center></h3>
+<form>
+<table align="center">
+<tr>
+
+<td ><input type="button" name="upload"  value="UploadPhoto" onclick="uploadphoto()" ></td><td><input type="button" name="viewGallary"  value="ViewGallery" onclick="gallery()" ></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

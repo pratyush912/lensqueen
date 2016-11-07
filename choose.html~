@@ -1,0 +1,35 @@
+<html>
+<head><title>Registration</title>
+<style>
+body
+{
+background-image:url('2.png')
+}
+</style>
+<script>
+function clickLap()
+	{
+		document.location='./sparepart.html';
+	}
+function clickDesk()
+	{
+		document.location='./sparepart.html';
+	}
+</script>
+</head>
+<body bgcolor="skyblue">
+<header>
+<h1 align="center">Computer Sales and Repair Shop</h1>
+<hr/><br/><br/><br/><br/><br/>
+<h3><center>Types of Computer</center></h3>
+<form>
+<table align="center">
+<tr><td colspan="2" align="center"><h4> Choose Any one</h4><td></tr>
+<tr>
+<td ><input type="button" name="laptop"  value="laptop" onclick="clickLap()" ></td><td><input type="button" name="Desktop"  value="Desktop" onclick="sparepart2.html" ></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
