@@ -1,6 +1,7 @@
 <?php
 
 	include 'myconnect.php';
+  session_start("session2");
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
@@ -12,12 +13,24 @@
 		$sql="insert into photo values('','$imagename','A','$imagetmp','0','$desc')";
 		$s=mysqli_query($conn,$sql);
 
+
 		if($s)
 		{
-			echo "<script language=javascript>alert('Data has been inserted successfully')</script>";
+      $photo_id = mysqli_insert_id($conn);
+      $sql = "select ssn from registration where email='".$_SESSION['login_user']."'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      $sql="insert into upload_user_photo values (".$row['ssn'].",".$photo_id.")";
+      $s=mysqli_query($conn,$sql);
+      if($s) {
+        echo "<script language=javascript>alert('Data has been inserted successfully')</script>";
+      } else {
+        echo "<script language=javascript>alert('!!!Unable to insert map')</script>";
+      }
+
 		}
 		else
-			echo "<script language=javascript>alert('!!!Unable to insert data')</script>";
+			echo "<script language=javascript>alert('!!!Unable to insert photo')</script>";
 	}
 ?>
 <html>
