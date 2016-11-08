@@ -21,8 +21,8 @@
 			echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']). ' " width="260" />';
 			echo "</br>";
 			echo "ID: {$row['photo_id']}";
-				
-				echo "</td>";
+		  echo '<button>Upvote</button>';
+      echo "</td>";
 				$ct=$ct+1;
 			}
 		}
