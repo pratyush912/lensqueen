@@ -103,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `lotest` (
 
 CREATE TABLE IF NOT EXISTS `photo` (
 `photo_id` bigint(11) NOT NULL,
+`theme_id` int(4) NOT NULL,
   `name` varchar(40) NOT NULL,
   `status` varchar(30) NOT NULL,
   `image` blob NOT NULL,
@@ -171,9 +172,10 @@ CREATE TABLE IF NOT EXISTS `suc_story` (
 
 CREATE TABLE IF NOT EXISTS `theme` (
   `start_dt` date NOT NULL,
+  `end_dt` date NOT NULL,
   `th_title` varchar(100) NOT NULL,
   `t_desc` varchar(100) NOT NULL,
-  `th_id` varchar(30) NOT NULL
+  `th_id` int(4) NOT NULL PRIMARY KEY AUTO_INCREMENT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

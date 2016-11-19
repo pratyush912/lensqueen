@@ -5,12 +5,16 @@
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
+    $theme_id = $_POST["th_id"];
+    if ($theme_id == -1) {
+        echo "<script language=javascript>alert('Please select the theme')</script>";
+    } else {
 		$imagename = $_FILES["myimage"]["name"];
 		$desc=mysql_real_escape_string($_POST['desc']);
 
 		$imagetmp = addslashes (file_get_contents($_FILES['myimage']['tmp_name']));
 
-		$sql="insert into photo values('','$imagename','A','$imagetmp','0','$desc')";
+		$sql="insert into photo values('',$theme_id, '$imagename','A','$imagetmp','0','$desc')";
 		$s=mysqli_query($conn,$sql);
 
 
@@ -27,17 +31,23 @@
       } else {
         echo "<script language=javascript>alert('!!!Unable to insert map')</script>";
       }
-
 		}
 		else
 			echo "<script language=javascript>alert('!!!Unable to insert photo')</script>";
-	}
+    }
+  }
 ?>
 <html>
 <head><title>photo uploading</title>
-<style>
-</style>
+<link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="./jquery.min.js"></script>
+<script src="./assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
+<style>
+body {
+  color: black;
+}
+</style>
 <body background="1.jpg">
 
 <h1 align="center">Photography Competition 2016</h1>
@@ -63,6 +73,42 @@
 	<tr>
 	<td> <textarea rows="5" cols="35" name="desc" placeholder="Description" required> </textarea></td>
 	</tr>
+  <tr><td><input id="theme_id" name="th_id" type="hidden" value="-1" /></td></tr>
+  <tr>
+  <td class="dropdown">
+      <button class="btn btn-primary" id="selectButton" data-toggle="dropdown">
+        Select Theme
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu scrollable-menu" id="themes">
+        <script>
+          $.ajax({
+          type: "GET",
+            url: './get_themes.php',
+            dataType: 'json',
+            success: function(json) {
+              console.log(json);
+              if (json) {
+                for (var i in json) {
+                  var title = json[i].title;
+                  var id = json[i].id;
+                  $("#themes").append(`<li><a href="#" data-pdsa-dropdown-val="${id}">${title}</a></li>`);
+                } 
+                $("#themes li a").on("click", function () {
+                    // Get text from anchor tag
+                    var id = $(this).data('pdsa-dropdown-val');
+                    $("#theme_id").val(id);
+                    // Add text and caret to the Select button
+                    var text = $(this).text();
+                    $("#selectButton").html(text + '&nbsp;<span class="caret"></span>');
+                  });
+              } 
+            }
+          });
+        </script>
+      </ul>
+  </td>
+  </tr>
 
 	<tr>
 	<td ><input type="submit" name="submit"  value="Upload" ></td>

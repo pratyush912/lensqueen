@@ -35,7 +35,7 @@
         }
       }
     }
-		$sql = "SELECT * FROM photo";
+		$sql = "select p.* , t.th_title from photo p inner join theme t on p.theme_id = t.th_id";
 		$query = mysqli_query($conn,$sql);
 		$ct=0;
 		if($query){
@@ -57,6 +57,7 @@
       $like_result = mysqli_query($conn,$sql);
       $count_row = mysqli_fetch_row($like_result);
       echo "<div>Vote Count: {$count_row[0]}";
+      echo "<div>Theme: {$row['th_title']}";
 		  echo "<button><a href='display.php?photo_id={$row['photo_id']}'>Upvote</a></button>";
       echo "</td>";
 				$ct=$ct+1;
